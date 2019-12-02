@@ -1,0 +1,13 @@
+<?php
+
+$greeting = 'awais';
+
+
+//echo $greeting;
+
+
+require 'index.view.php';
+
+
+
+?>
