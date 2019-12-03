@@ -1,0 +1,29 @@
+<?php
+
+require 'functions.php';
+
+$animal = ['dog', 'cat', 'parrot'];
+
+
+
+
+dd($animal);
+
+//require 'index.view.php';
+
+
+
+/////////////////////////////////////////////////////////////
+
+
+
+<?php
+
+function dd($data){
+
+    echo '<pre>';
+
+    die(var_dump($data));
+
+    echo '</preq>';
+}
