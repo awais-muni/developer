@@ -1,0 +1,53 @@
+<?php
+
+
+//require 'functions.php';
+require 'Task.php';
+$query = require 'bootstrap.php';
+
+$query = new querybuilder($pdo);
+
+$tasks = $query -> selectAll('todos');
+
+
+require 'index.view.php';
+
+
+----------------------------------------------------
+
+
+
+
+<?php
+
+require 'connection.php';
+require 'querybuilder.php';
+
+return new querybuilder(
+    connection::make()
+);
+
+
+--------------------------------------------------------
+
+
+
+<?php
+
+class Connection
+{
+    public static function make ()
+    {
+        try {
+            return new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');
+
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+}
+
+$pdo = Connection::make();
+
+
+
