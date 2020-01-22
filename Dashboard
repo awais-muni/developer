@@ -1,0 +1,176 @@
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Button } from 'react-native';
+
+class Menu2 extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { Text: '1', register: {} };
+    }
+
+    render() {
+        return (
+
+            <View style={styles.container}>
+
+                <View style={{ flex: 0.88, justifyContent: 'center' }}>
+
+                    <Text style={{ textAlign: 'center' }}>
+
+                    </Text>
+
+                    <Image style={{ width: '70%', flex: 0.5, alignSelf: 'center' }}
+                        resizeMode='contain'
+                        source={require('../pics/12.png')}
+                    ></Image>
+
+
+                </View>
+
+
+                <View style={{
+                    flexDirection: 'row', alignSelf: 'center', height: 70,
+                    backgroundColor: '#182952',
+                    marginTop: 0,
+                }}>
+
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1, }}
+                        onPress={() => { this.props.navigation.navigate('SettingsSection'); }}>
+
+
+                        <Image style={{ width: '100%', height: '55%', alignSelf: 'center', marginTop: 13 }}
+
+                            resizeMode='contain'
+                            source={require('../pics/gear.png')}
+
+                        >
+                        </Image>
+
+                        <Text style={{ color: 'white', alignSelf: 'center', fontSize: 12, fontWeight: 'normal' }}>
+                            settings
+                        </Text>
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1, }}
+                        onPress={() => { this.props.navigation.navigate('DiscountSection'); }}>
+
+                        <Image style={{ height: '55%', width: '100%', resizeMode: 'contain', marginTop: 13 }}
+                            source={require('../pics/sale.png')}>
+
+                        </Image>
+
+                        <Text style={{ color: 'white', alignSelf: 'center', fontWeight: 'normal', fontSize: 12, width: '70%', textAlign: 'center' }}>
+                            Discount
+                        </Text>
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1, }}
+
+                        onPress={() => { this.props.navigation.navigate('PriceComparison'); }}>
+
+                        <Image style={{ width: '100%', height: '55%', resizeMode: 'contain', marginLeft: 0, marginTop: 13 }}
+                            source={require('../pics/comparison.png')}>
+
+                        </Image>
+
+                        <Text style={{
+                            color: 'white', alignSelf: 'center', fontWeight: 'normal', fontSize: 12,
+                            width: '80%',
+                        }}>
+                            comparison
+                        </Text>
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1 }}
+                        onPress={() => { this.props.navigation.navigate('RecordSection'); }}>
+
+                        <Image style={{ width: '100%', height: '55%', resizeMode: 'contain', marginLeft: 0, marginTop: 13 }}
+                            source={require('../pics/vinyl.png')}>
+
+                        </Image>
+
+                        <Text style={{
+                            color: 'white', alignSelf: 'center', fontWeight: 'normal', fontSize: 12,
+                            width: '70%', textAlign: 'center',
+                        }}>
+
+                            Record
+
+                        </Text>
+
+                    </TouchableOpacity>
+
+                </View>
+
+                <View style={{
+                    flex: 0.15, flexDirection: 'row-reverse', alignSelf: 'center',
+                    backgroundColor: 'grey',
+                }}>
+
+                    <TouchableOpacity
+                        style={{
+                            width: '20%',
+                            flex: 1,
+
+                        }}>
+                        {/* 
+                        <Image style={{ width: '50%', height: '50%', alignSelf: 'center', marginTop: 13 }}
+
+                            resizeMode='contain'
+                            source={require('../pics/444.png')}
+
+                        >
+                        </Image> */}
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1 }}>
+
+                        {/* <Image style={{ height: '50%', width: '50%', resizeMode: 'contain', marginLeft: 15, marginTop: 13 }}
+                            source={require('../pics/444.png')}>
+
+                        </Image> */}
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1, }}>
+
+                        {/* <Image style={{ width: '50%', height: '50%', resizeMode: 'contain', marginLeft: 15, marginTop: 13 }}
+                            source={require('../pics/444.png')}>
+
+                        </Image> */}
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ width: '20%', flex: 1 }}>
+
+                        {/* <Image style={{ width: '50%', height: '50%', resizeMode: 'contain', marginLeft: 15, marginTop: 13 }}
+                            source={require('../pics/444.png')}>
+
+                        </Image> */}
+
+                    </TouchableOpacity>
+
+                </View>
+
+
+            </View >
+
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+
+    container: {
+        flex: 1,
+        backgroundColor: '#182952'
+    },
+
+});
+
+export default Menu2;
