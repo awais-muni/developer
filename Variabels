@@ -1,8 +1,0 @@
-<?php
-
-$greeting = 'is my name';
-$F_name = 'Munir Ahmed';
-
-
-
-echo "Awais {$greeting}, Father: {$F_name}";
