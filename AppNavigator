@@ -1,0 +1,34 @@
+import React from 'react';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import Dashboard from './Dashboard';
+import SettingsSection from './SettingsSection';
+import SettingsDiscount from './SettingsDiscountScale';
+import SettingsRecordSection from './SettingsRecordSection';
+import SettingsPriceComparison from './SettingsPriceComparison';
+import PriceComparison from './PriceComparisonSection';
+import DiscountSection from './DiscountScaleSection';
+import RecordSection from './RecordSection';
+import SettingsPriceComparisonCompetitor from './SettingsPriceComparisonCompetitor';
+
+const AppNavigator = createStackNavigator(
+    {
+        SettingsSection: { screen: SettingsSection },
+        Dashboard: { screen: Dashboard },
+        SettingsDiscount: { screen: SettingsDiscount },
+        SettingsRecordSection: { screen: SettingsRecordSection },
+        SettingsPriceComparison: { screen: SettingsPriceComparison },
+        PriceComparison: { screen: PriceComparison },
+        DiscountSection: { screen: DiscountSection },
+        RecordSection: { screen: RecordSection },
+        SettingsPriceComparisonCompetitor: { screen: SettingsPriceComparisonCompetitor }
+    },
+
+    {
+        initialRouteName: 'Dashboard',
+        headerMode: 'none'
+    }
+);
+const Abc = createAppContainer(AppNavigator);
+
+export default Abc;
