@@ -1,0 +1,464 @@
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, AppRegistry, Image, TextInput, ScrollView } from 'react-native';
+import { RadioButton } from 'react-native-paper';
+let index = 0
+
+class Competitors extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            arr: 0, checked: 'first', user: ''
+        };
+    }
+
+    insertSomeThing = () => {
+        //console.warn('awais');
+        var arr = this.state.arr;
+        arr = arr + 1;
+        this.setState({ arr });
+    }
+
+    updateUser = (user) => {
+        this.setState({ user: user })
+    }
+
+    insert() {
+
+        for (var i = 0; i < this.state.arr; i++) {
+            //console.warn('sdfsd');
+            const { checked } = this.state;
+            return (
+                <View style={{
+                    //backgroundColor: '#182952',
+                    backgroundColor: '#3e3e91',
+                    height: 600,
+                    marginTop: 20,
+                    width: 340,
+                    alignSelf: 'center'
+                }}>
+
+                    <ScrollView contentContainerStyle={{ justifyContent: 'space-evenly' }}>
+
+                        <View style={{ flex: 0.2, backgroundColor: 'blue' }}>
+
+                        </View>
+
+                        <Text>
+
+                        </Text>
+
+                        <Text>
+
+                        </Text>
+
+                        <Text>
+
+                        </Text>
+
+                        <Text style={{
+                            fontWeight: 'normal', fontSize: 15, color: 'white',
+                            marginTop: 0, marginLeft: 30, marginBottom: 5
+                        }}>
+                            COMPETITOR NAME:
+                                </Text>
+
+                        <View style={{ height: 65, alignItems: 'center', }}>
+
+                            <TextInput
+                                placeholder={'Enter Your Competitor Name '}
+                                placeholderTextColor={'#c9bdbd'}
+                                onChangeText={text => this.setState({ Cname: text })
+                                }
+                                //value={this.state.Cname}
+                                style={{
+                                    backgroundColor: '#e0e0e0', width: '90%',
+                                    borderRadius: 30, paddingLeft: 15, borderColor: 'gray', borderWidth: 2
+                                }}>
+                            </TextInput>
+
+                        </View>
+
+                        <Text style={{
+                            fontSize: 15, fontWeight: 'normal', marginTop: 15,
+                            color: 'white', alignSelf: 'center', width: '80%', marginBottom: 10
+                        }}>
+                            Is competitor's price higher than your price or lower?
+                        </Text>
+
+
+                        <View style={{
+                            //backgroundColor: '#253f5a',
+                            flexDirection: 'row', marginBottom: 15,
+                            alignItems: 'center', width: 240, alignSelf: 'center',
+                        }}>
+
+
+                            <RadioButton
+                                value="first"
+                                status={checked === 'first' ? 'checked' : 'unchecked'}
+                                onPress={() => { this.setState({ checked: 'first' }); }}
+                            />
+                            <Text style={{ fontSize: 15, fontWeight: 'normal', color: 'white', marginRight: 50 }}>
+
+                                Higher
+
+                            </Text>
+                            <RadioButton
+                                value="second"
+                                status={checked === 'second' ? 'checked' : 'unchecked'}
+                                onPress={() => { this.setState({ checked: 'second' }); }}
+                            />
+
+                            <Text style={{ fontSize: 15, fontWeight: 'normal', color: 'white', margin: 0 }}>
+
+                                Lower
+
+                            </Text>
+
+                        </View>
+
+                        <Text style={{
+                            fontSize: 15, fontWeight: 'normal', color: 'white', marginTop: 10,
+                            marginBottom: 0, marginLeft: 30
+                        }}>
+                            PERCENTAGE FIGURE:
+                        </Text>
+
+                        <View style={{
+                            height: 115, flexDirection: 'row', marginTop: -25,
+
+                        }}>
+
+                            <TextInput
+                                placeholder={'By How Much?'}
+                                placeholderTextColor={'#c9bdbd'}
+                                keyboardType='numeric'
+                                onChangeText={text => this.setState({ Pfigure: text })
+                                }
+                                //value={this.state.Pfigure}
+                                style={{
+                                    backgroundColor: '#e0e0e0', width: '80%', borderLeftWidth: 2,
+                                    alignSelf: 'center', borderColor: 'gray', borderTopWidth: 2, borderBottomWidth: 2,
+                                    borderBottomLeftRadius: 30, borderTopLeftRadius: 30, marginLeft: 20, paddingLeft: 15
+                                }}>
+
+
+                            </TextInput>
+
+                            <View style={{
+                                width: '10%', height: 53, borderRightWidth: 2, borderTopWidth: 2, borderBottomWidth: 2,
+                                alignSelf: 'center', backgroundColor: 'lightgrey',
+                                borderTopRightRadius: 30, borderBottomRightRadius: 30, borderColor: 'gray',
+                            }}>
+
+                                <Image style={{
+                                    resizeMode: 'contain', width: '100%', height: '50%', marginTop: 10
+                                }}
+                                    source={require('../pics/000.png')}>
+
+                                </Image>
+
+                            </View>
+
+                        </View>
+
+
+
+                        <View style={{ marginTop: -20 }}>
+
+                            <Text style={{
+                                fontSize: 15, fontWeight: 'normal', color: 'white',
+                                marginTop: 20, marginLeft: 30
+                            }}>
+                                COMMENTS:
+                            </Text>
+
+
+                            <TextInput
+                                placeholder={'What Can You Say About This Competitor?'}
+                                placeholderTextColor={'#c9bdbd'}
+                                height={150}
+                                multiline={true}
+                                onChangeText={text => this.setState({ Comnts: text })
+                                }
+                                //  value={this.state.Comnts}
+                                style={{
+                                    width: '88%', backgroundColor: '#e0e0e0', borderRadius: 5, marginTop: 5,
+                                    textAlignVertical: 'top', alignSelf: 'center', paddingLeft: 10, borderWidth: 2, borderColor: 'gray',
+                                }}>
+
+                            </TextInput>
+
+                        </View>
+
+                    </ScrollView>
+
+                </View>
+            );
+        }
+
+    }
+
+
+    render() {
+
+        const { checked } = this.state;
+
+        return (
+
+            <View style={styles.container}>
+
+
+                <View style={{
+                    flex: 0.1, marginTop: 40, height: 0,
+                    alignSelf: 'center', borderWidth: 1, borderColor: 'black',
+                    backgroundColor: 'lightgrey',
+                    flexDirection: 'row', marginBottom: 50
+                }}>
+
+                    <TouchableOpacity style={{
+                        flex: 0.8, marginRight: 0, alignSelf: 'center', height: 35,
+                        marginTop: 0, marginLeft: 0, borderRadius: 50
+                    }}
+
+                        onPress={() => { this.props.navigation.navigate('SettingsPriceComparison'); }}>
+
+                        <Text style={{
+                            fontSize: 15, fontWeight: 'normal', alignSelf: 'center',
+                            marginTop: 7,
+                        }}>
+                            YOUR COMPANY
+                                </Text>
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{
+                        flex: 0.9, marginRight: 10, alignSelf: 'center', height: 35, borderColor: 'red', borderWidth: 1,
+                        marginTop: 0, marginLeft: 0, borderRadius: 50, backgroundColor: '#ff7475'
+                    }}>
+
+                        <Text style={{
+                            fontSize: 15, fontWeight: 'bold',
+                            alignSelf: 'center',
+                            marginTop: 7, marginLeft: 0,
+                            color: 'white'
+                        }}>
+                            YOUR COMPETITORS
+                                </Text>
+
+                    </TouchableOpacity>
+
+                </View>
+
+
+                <View style={{
+                    backgroundColor: '#182952',
+                    flex: 0.9,
+                    marginTop: 0,
+                }}>
+
+                    <ScrollView contentContainerStyle={{ justifyContent: 'space-evenly' }}>
+
+                        <Text style={{
+                            fontWeight: 'normal', fontSize: 15, color: 'white',
+                            marginTop: 0, marginLeft: 30, marginBottom: 5
+                        }}>
+                            COMPETITOR NAME:
+                                </Text>
+
+                        <View style={{ height: 65, alignItems: 'center', }}>
+
+                            <TextInput
+                                placeholder={'Enter Your Competitor Name '}
+                                placeholderTextColor={'#c9bdbd'}
+                                onChangeText={text => this.setState({ Cname: text })
+                                }
+                                //value={this.state.Cname}
+                                style={{
+                                    backgroundColor: '#e0e0e0', width: '90%',
+                                    borderRadius: 30, paddingLeft: 15, borderColor: 'gray', borderWidth: 2
+                                }}>
+                            </TextInput>
+
+                        </View>
+
+                        <Text style={{
+                            fontSize: 15, fontWeight: 'normal', marginTop: 15,
+                            color: 'white', alignSelf: 'center', width: '80%', marginBottom: 10
+                        }}>
+                            Is competitor's price higher than your price or lower?
+                        </Text>
+
+
+                        <View style={{
+                            //backgroundColor: '#253f5a',
+                            flexDirection: 'row', marginBottom: 15,
+                            alignItems: 'center', width: 240, alignSelf: 'center',
+                        }}>
+
+
+                            <RadioButton
+                                value="first"
+                                status={checked === 'first' ? 'checked' : 'unchecked'}
+                                onPress={() => { this.setState({ checked: 'first' }); }}
+                            />
+                            <Text style={{ fontSize: 15, fontWeight: 'normal', color: 'white', marginRight: 50 }}>
+
+                                Higher
+
+                            </Text>
+                            <RadioButton
+                                value="second"
+                                status={checked === 'second' ? 'checked' : 'unchecked'}
+                                onPress={() => { this.setState({ checked: 'second' }); }}
+                            />
+
+                            <Text style={{ fontSize: 15, fontWeight: 'normal', color: 'white', margin: 0 }}>
+
+                                Lower
+
+                            </Text>
+
+                        </View>
+
+                        <Text style={{
+                            fontSize: 15, fontWeight: 'normal', color: 'white', marginTop: 10,
+                            marginBottom: 0, marginLeft: 30
+                        }}>
+                            PERCENTAGE FIGURE:
+                        </Text>
+
+                        <View style={{
+                            height: 115, flexDirection: 'row', marginTop: -25,
+
+                        }}>
+
+                            <TextInput
+                                placeholder={'By How Much?'}
+                                placeholderTextColor={'#c9bdbd'}
+                                keyboardType='numeric'
+                                onChangeText={text => this.setState({ Pfigure: text })
+                                }
+                                //value={this.state.Pfigure}
+                                style={{
+                                    backgroundColor: '#e0e0e0', width: '80%', borderLeftWidth: 2,
+                                    alignSelf: 'center', borderColor: 'gray', borderTopWidth: 2, borderBottomWidth: 2,
+                                    borderBottomLeftRadius: 30, borderTopLeftRadius: 30, marginLeft: 20, paddingLeft: 15
+                                }}>
+
+
+                            </TextInput>
+
+                            <View style={{
+                                width: '10%', height: 53, borderRightWidth: 2, borderTopWidth: 2, borderBottomWidth: 2,
+                                alignSelf: 'center', backgroundColor: 'lightgrey',
+                                borderTopRightRadius: 30, borderBottomRightRadius: 30, borderColor: 'gray',
+                            }}>
+
+                                <Image style={{
+                                    resizeMode: 'contain', width: '100%', height: '50%', marginTop: 10
+                                }}
+                                    source={require('../pics/000.png')}>
+
+                                </Image>
+
+                            </View>
+
+                        </View>
+
+
+
+                        <View style={{ marginTop: -20 }}>
+
+                            <Text style={{
+                                fontSize: 15, fontWeight: 'normal', color: 'white',
+                                marginTop: 20, marginLeft: 30
+                            }}>
+                                COMMENTS:
+                            </Text>
+
+
+                            <TextInput
+                                placeholder={'What Can You Say About This Competitor?'}
+                                placeholderTextColor={'#c9bdbd'}
+                                height={150}
+                                multiline={true}
+                                onChangeText={text => this.setState({ Comnts: text })
+                                }
+                                //  value={this.state.Comnts}
+                                style={{
+                                    width: '88%', backgroundColor: '#e0e0e0', borderRadius: 5, marginTop: 5,
+                                    textAlignVertical: 'top', alignSelf: 'center', paddingLeft: 10, borderWidth: 2, borderColor: 'gray',
+                                }}>
+
+                            </TextInput>
+
+                        </View>
+
+
+                        {/* // */}
+                        {this.insert()}
+
+                        {/* // */}
+
+
+                        <TouchableOpacity
+                            //onPress={() => this.SettingsPriceComparison()}
+                            onPress={this.insertSomeThing.bind(this)}
+                            style={{
+                                height: 60,
+                                width: 200,
+                                alignSelf: 'center',
+                                marginTop: 100,
+                                borderRadius: 30,
+                                marginBottom: 20,
+                                backgroundColor: '#1e941c',
+                                borderColor: 'green',
+                                borderWidth: 2
+                            }}>
+
+                            <Text style={{
+                                fontSize: 25, fontWeight: 'normal',
+                                alignSelf: 'center', color: 'white', marginTop: 10
+                            }}>
+
+                                SAVE or ADD
+
+                                </Text>
+
+                        </TouchableOpacity>
+
+                    </ScrollView>
+
+                </View>
+
+            </View >
+
+
+
+        );
+
+    }
+}
+
+const styles = StyleSheet.create({
+
+    container: {
+        flex: 1,
+        backgroundColor: '#182952',
+    },
+
+
+    selectedItemView:
+    {
+        left: 0,
+        right: 0,
+        bottom: 0,
+        padding: 14,
+    },
+});
+
+AppRegistry.registerComponent('Test', () => Test);
+
+export default Competitors;
