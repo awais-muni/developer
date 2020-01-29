@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ScrollView, Picker, AppRegistry } from 'react-native';
+import {
+    View, Text, StyleSheet, TouchableOpacity, Image,
+    TextInput, ScrollView, Picker, AppRegistry
+} from 'react-native';
 
 let index = 0
 
@@ -8,13 +11,14 @@ class SettingsDiscountScale extends Component {
     constructor() {
         super();
         this.state = {
-            arr: []
+            arr: [], arr2: []
         };
     }
     insertSomeThing = () => {
         var arr = [1];
-
+        var arr2 =[1];
         this.setState({ arr });
+        this.setState({ arr2 });
     }
 
 
@@ -26,155 +30,224 @@ class SettingsDiscountScale extends Component {
 
         let arr = this.state.arr.map((r, i) => {
             return (
-                <View key={i} style={{ backgroundColor: 'white', width: '70%', borderRadius: 20, alignSelf: 'center' }}>
-                    <TextInput placeholder='Here' placeholderTextColor='lightgrey' />
+                <View key={i} style={{
+                    backgroundColor: 'white', width: '70%',
+                    borderRadius: 50, alignSelf: 'center', paddingLeft: 15
+                }}>
+                    <TextInput style={{ fontSize: 12}} placeholder='DISCOUNT' placeholderTextColor='lightgrey' />
+                </View>
+            );
+
+        })
+
+
+        let arr2 = this.state.arr2.map((r, i) => {
+            return (
+                <View key={i} style={{
+                    backgroundColor: 'white', width: '70%',
+                    borderRadius: 50, alignSelf: 'center', paddingLeft: 15
+                }}>
+                    <TextInput style={{ fontSize: 12}} placeholder='COMMISSION' placeholderTextColor='lightgrey' />
                 </View>
             );
         })
 
 
-        return (
+            return (
 
-            <View style={styles.container}>
+                <View style={styles.container}>
 
-                <View style={{
-                    height: 65, alignItems: 'center',
-                    marginBottom: 0,
-                    backgroundColor: 'white',
-                    flexDirection: 'row'
-                }}>
 
-                    <TouchableOpacity style={{ width: 70, height: 65 }}
-                        onPress={() => { this.props.navigation.navigate('SettingsSection'); }}>
+                    <View style={{
+                        flex: 0.09,
+                        backgroundColor: 'white',
+                        flexDirection: 'row',
+                        borderWidth: 2, borderColor: '#dfdad8'
+                    }}>
 
-                        <Image style={{ width: '80%', height: '45%', resizeMode: 'contain', marginTop: 18 }}
-                            source={require('../pics/left2.png')}>
+                        <TouchableOpacity style={{ flex: 0.15 }}
+                            onPress={() => { this.props.navigation.navigate('SettingsSection'); }}>
 
-                        </Image>
+                            <Image style={{ width: '100%', height: '40%', resizeMode: 'contain', marginTop: 20 }}
+                                source={require('../pics/left2.png')}>
 
-                    </TouchableOpacity>
+                            </Image>
 
-                    <View style={{ alignSelf: 'center', width: 235 }}>
+                        </TouchableOpacity>
 
-                        <Text style={{
-                            fontWeight: 'bold', fontSize: 25, alignSelf: 'center',
-                            marginTop: 4, color: 'black', marginLeft: 0,
-                        }}>
+                        <View style={{ flex: 0.7 }}>
 
-                            DISCOUNT SCALE
+                            <Text style={{
+                                fontWeight: 'bold', fontSize: 22, alignSelf: 'center',
+                                paddingTop: 18, color: 'black'
+                            }}>
 
+                                DISCOUNT SCALE
+    
                     </Text>
 
-                    </View>
+                        </View>
 
-                    <View style={{ width: 90, height: 65, }}>
+                        <View style={{ flex: 0.15, paddingTop: 18 }}>
 
-                        <Image style={{ width: '100%', height: '55%', resizeMode: 'contain', marginTop: 15 }}
-                            source={require('../pics/tag.png')}>
+                            <Image style={{
+                                width: '100%', height: '65%', resizeMode: 'contain',
+                                marginTop: 0, marginLeft: 0
+                            }}
+                                source={require('../pics/tag.png')} >
 
-                        </Image>
-
-                    </View>
-
-                </View>
-
-
-                <View style={styles.container3}>
-
-                    <ScrollView contentContainerStyle={{ justifyContent: 'space-evenly' }}>
-
-                        <Text style={{ fontWeight: 'normal', fontSize: 15, color: 'white', marginTop: 20, marginLeft: 10, marginBottom: 10 }}>
-
-                            Default Non Discountable Amount (NDA)
-
-                        </Text>
-
-                        <View style={{
-                            flex: 0.25, backgroundColor: '#182952', flexDirection: 'row'
-                        }}>
-                            <View style={{
-                                flex: 0.8, backgroundColor: '#bfc4c7', width: '90%', alignSelf: 'center', marginLeft: 10,
-                                borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginBottom: 40, height: '50%'
-                            }}>
-
-                                <Picker style={{ width: '100%', alignSelf: 'center' }}
-                                    selectedValue={this.state.user}
-                                    onValueChange={this.updateUser}
-                                    itemStyle={{ backgroundColor: 'black', color: "yellow", fontFamily: "Ebrima", fontSize: 20 }}>
-                                    <Picker.Item label="£" value="£" color='red' />
-                                    <Picker.Item label="$" value="$" color='red' />
-                                    <Picker.Item label="€" value="€" color='red' />
-                                </Picker>
-
-                            </View>
-
-                            <TextInput
-
-                                style={{
-                                    width: '80%', backgroundColor: '#c7cdd1',
-                                    height: '50%', alignSelf: 'center', marginBottom: 40,
-                                    marginLeft: 0, borderTopLeftRadius: 0, borderBottomLeftRadius: 0,
-                                    borderTopRightRadius: 20, borderBottomRightRadius: 20
-                                }}>
-
-                            </TextInput>
+                            </Image>
 
                         </View>
 
+                    </View>
 
 
-                        <Text style={{ fontSize: 15, fontWeight: 'normal', color: 'white', marginLeft: 10, marginBottom: 10 }}>
 
-                            Default VAT/TAX
+                    <View style={styles.container3}>
 
+                        <ScrollView contentContainerStyle={{ justifyContent: 'space-evenly' }}>
+
+
+                            <Text style={{ color: '#182952' }}>
+                                awais
+                            </Text>
+                            <Text style={{ color: '#182952' }}>
+                                awais
                         </Text>
 
-                        <View style={{ flex: 0.25, backgroundColor: '#182952', flexDirection: 'row', }}>
 
 
-                            <View style={{
-                                flex: 0.8, backgroundColor: '#bfc4c7', width: '100%', alignSelf: 'center', marginLeft: 10,
-                                borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginBottom: 40, height: '50%'
+                            <Text style={{
+                                fontWeight: 'normal', fontSize: 15,
+                                color: 'white', marginLeft: 40
                             }}>
 
-                                <Picker style={{ width: '100%', alignSelf: 'center' }}
-                                    selectedValue={this.state.user}
-                                    onValueChange={this.updateUser}
-                                    itemStyle={{ backgroundColor: 'black', color: "yellow", fontFamily: "Ebrima", fontSize: 17 }}>
-                                    <Picker.Item label="£" value="USD" color='red' />
-                                    <Picker.Item label="$" value="GBP" color='red' />
-                                    <Picker.Item label="€" value="PKR" color='red' />
-                                </Picker>
-
-                            </View>
+                                Default Non Discountable Amount (NDA)
+    
+                        </Text>
 
 
-                            <TextInput
 
-                                style={{
-                                    width: '70%', backgroundColor: '#c7cdd1',
-                                    height: '50%', alignSelf: 'center', marginBottom: 40,
-                                    marginLeft: 0,
+
+                            <View style={{ flex: 0.12, flexDirection: 'row', alignItems: 'center', marginLeft: 30 }}>
+
+
+                                <View style={{
+                                    backgroundColor: 'white', flex: 0.25,
+                                    borderLeftWidth: 2, borderBottomWidth: 2, borderTopWidth: 2, borderColor: 'grey',
+                                    borderTopLeftRadius: 30, borderBottomLeftRadius: 30, paddingLeft: 10
                                 }}>
-                            </TextInput>
+                                    <Picker style={{
+                                        width: 80,
+                                        height: 49,
+                                        alignSelf: 'center'
+                                    }}
+                                        selectedValue={this.state.user}
+                                        onValueChange={this.updateUser}
+                                        itemStyle={{
+                                            backgroundColor: 'white', color: "yellow", fontFamily: "Ebrima",
+                                            fontSize: 20
+                                        }}>
+                                        <Picker.Item label="£" value="£" color='red' />
+                                        <Picker.Item label="$" value="$" color='red' />
+                                        <Picker.Item label="€" value="€" color='red' />
+                                    </Picker>
+                                </View>
 
-                            <View style={{
-                                backgroundColor: '#bfc4c7', width: '10%', alignSelf: 'center', marginLeft: 0,
-                                marginBottom: 40, height: '50%', borderBottomRightRadius: 20, borderTopRightRadius: 20
-                            }}>
+                                <TextInput style={{
+                                    backgroundColor: 'white', borderColor: 'grey', borderTopWidth: 2, borderRightWidth: 2,
+                                    borderBottomWidth: 2,
+                                    flex: 0.65, borderTopRightRadius: 30, borderBottomRightRadius: 30
+                                }}>
 
-                                <Image style={{ width: '100%', height: '65%', resizeMode: 'contain', marginTop: 5 }}
-                                    source={require('../pics/000.png')}>
+                                </TextInput>
 
-                                </Image>
 
                             </View>
 
 
-                        </View>
+
+                            <Text style={{ color: '#182952' }}>
+                                awais
+                        </Text>
+
+                            <Text style={{ color: '#182952' }}>
+                                awais
+                        </Text>
 
 
-                        <View style={{ height: '20%', backgroundColor: '#182952' }}>
+
+
+
+                            <Text style={{ fontSize: 15, fontWeight: 'normal', color: 'white', paddingLeft: 40 }}>
+
+                                Default VAT/TAX
+    
+                        </Text>
+
+
+
+
+                            <View style={{ flex: 0.12, flexDirection: 'row', alignItems: 'center' }}>
+
+
+                                <View style={{
+                                    backgroundColor: 'white', flex: 0.3, marginLeft: 0,
+                                    borderTopWidth: 2, borderColor: 'grey', borderBottomWidth: 2, borderLeftWidth: 2,
+                                    borderTopLeftRadius: 30, borderBottomLeftRadius: 30, marginLeft: 30, paddingLeft: 5
+                                }}>
+                                    <Picker style={{
+                                        width: 80,
+                                        height: 49,
+                                        alignSelf: 'center'
+                                    }}
+                                        selectedValue={this.state.user}
+                                        onValueChange={this.updateUser}
+                                        itemStyle={{
+                                            backgroundColor: 'white', color: "yellow", fontFamily: "Ebrima",
+                                            fontSize: 20
+                                        }}>
+                                        <Picker.Item label="£" value="£" color='red' />
+                                        <Picker.Item label="$" value="$" color='red' />
+                                        <Picker.Item label="€" value="€" color='red' />
+                                    </Picker>
+                                </View>
+
+                                <TextInput style={{
+                                    backgroundColor: 'white',
+                                    flex: 0.5, borderColor: 'grey', borderTopWidth: 2, borderBottomWidth: 2
+                                }}>
+
+                                </TextInput>
+
+                                <View style={{
+                                    backgroundColor: '#eeeeee', marginLeft: 0, flex: 0.1, height: 53,
+                                    marginBottom: 0, borderBottomRightRadius: 30, borderTopRightRadius: 30,
+                                    borderColor: 'grey', borderTopWidth: 2, borderBottomWidth: 2, borderRightWidth: 2
+                                }}>
+
+                                    <Image style={{ width: '100%', height: '45%', resizeMode: 'contain', marginTop: 13 }}
+                                        source={require('../pics/000.png')}>
+
+                                    </Image>
+
+                                </View>
+
+
+                            </View>
+
+                            <Text style={{ color: '#182952' }}>
+                                awais
+                            </Text>
+
+                            <Text style={{ color: '#182952' }}>
+                                awais
+                            </Text>
+
+                            <Text style={{ color: '#182952' }}>
+                                awais
+                            </Text>
 
 
                             <TouchableOpacity
@@ -182,129 +255,126 @@ class SettingsDiscountScale extends Component {
                                 onPress={this.insertSomeThing.bind(this)}
 
                                 style={{
-                                    width: 340, height: 60, alignSelf: 'center',
-                                    borderRadius: 50, backgroundColor: '#62db46'
+                                    alignSelf: 'center', height: 60, width: 300,
+                                    borderRadius: 50, backgroundColor: '#62db46', paddingTop: 15,
+                                    borderWidth: 2, borderColor: 'green'
                                 }}>
 
                                 <Text style={{
-                                    fontSize: 20, fontWeight: 'normal', textAlign: 'center',
-                                    marginTop: 15, color: 'white'
+                                    fontSize: 20, fontWeight: 'normal', alignSelf: 'center',
+                                    marginTop: 0, color: 'white'
                                 }}>
 
                                     ADD or SAVE D/C ENTRY
-
+    
                                 </Text>
 
                             </TouchableOpacity>
 
-                        </View>
 
-                        <View style={{ flex: 0.55, flexDirection: 'row', marginBottom: 20 }}>
+                            <View style={{ flex: 0.55, flexDirection: 'row', marginBottom: 20, paddingTop: 40 }}>
 
-                            <View style={{ flex: 0.5, flexDirection: 'column', }}>
+                                <View style={{ flex: 0.5, flexDirection: 'column', }}>
 
-                                <View style={{
-                                    height: 50,
-                                    backgroundColor: '#182952',
-                                }}>
-
-                                    <Text style={{
-                                        textAlign: 'center', fontSize: 20, fontWeight: 'normal',
-                                        marginTop: 10, color: 'white'
+                                    <View style={{
+                                        height: 50,
+                                        backgroundColor: '#182952',
                                     }}>
-                                        DISCOUNT
+
+                                        <Text style={{
+                                            textAlign: 'center', fontSize: 20, fontWeight: 'normal',
+                                            marginTop: 10, color: 'white'
+                                        }}>
+                                            DISCOUNT
                                     </Text>
 
+                                    </View>
+
+                                    <View style={{
+                                        height: 70,
+                                        backgroundColor: '#182952',
+
+                                        justifyContent: 'space-evenly', borderColor: 'white'
+                                    }}>
+
+                                        {arr}
+
+                                    </View>
+
+
+                                    <View style={{
+                                        height: 70,
+                                        backgroundColor: '#182952',
+                                        justifyContent: 'space-evenly', borderColor: 'white'
+                                    }}>
+
+                                        {arr}
+
+                                    </View>
+
                                 </View>
 
-                                <View style={{
-                                    height: 70,
-                                    backgroundColor: '#182952',
+                                <View style={{ flex: 0.5 }}>
 
-                                    justifyContent: 'space-evenly', borderColor: 'white'
-                                }}>
+                                    <View style={{ height: 50, backgroundColor: '#182952' }}>
 
-                                    {arr}
+                                        <Text style={{
+                                            textAlign: 'center', fontSize: 20,
+                                            fontWeight: 'normal', marginTop: 10, color: 'white'
+                                        }}>
+                                            COMMISSION
+                                    </Text>
 
-                                </View>
+                                    </View>
+
+                                    <View style={{
+                                        height: 70, backgroundColor: '#182952', justifyContent: 'space-evenly',
 
 
-                                <View style={{
-                                    height: 70,
-                                    backgroundColor: '#182952',
-                                    justifyContent: 'space-evenly', borderColor: 'white'
-                                }}>
+                                    }}>
 
-                                    {arr}
+                                        {arr2}
+                                    </View>
+
+
+                                    <View style={{
+                                        height: 70, backgroundColor: '#182952', justifyContent: 'space-evenly',
+
+
+                                    }}>
+
+                                        {arr2}
+                                    </View>
 
                                 </View>
 
                             </View>
 
-                            <View style={{ flex: 0.5 }}>
+                        </ScrollView>
 
-                                <View style={{ height: 50, backgroundColor: '#182952' }}>
+                    </View>
 
-                                    <Text style={{
-                                        textAlign: 'center', fontSize: 20,
-                                        fontWeight: 'normal', marginTop: 10, color: 'white'
-                                    }}>
-                                        COMMISSION
-                                    </Text>
+                </View >
 
-                                </View>
-
-                                <View style={{
-                                    height: 70, backgroundColor: '#182952', justifyContent: 'space-evenly',
-
-
-                                }}>
-
-                                    {arr}
-                                </View>
-
-
-                                <View style={{
-                                    height: 70, backgroundColor: '#182952', justifyContent: 'space-evenly',
-
-
-                                }}>
-
-                                    {arr}
-                                </View>
-
-                            </View>
-
-
-                        </View>
-
-
-                    </ScrollView>
-
-                </View>
-
-
-            </View >
-
-        );
-    }
+            );
+        }
 }
 
-const styles = StyleSheet.create({
+    const styles = StyleSheet.create({
 
-    container: {
-        flex: 1,
-        backgroundColor: 'white'
+        container: {
+            flex: 1,
+            backgroundColor: 'white'
 
-    },
+        },
 
-    container3: {
-        flex: 1,
-        backgroundColor: '#182952',
-    }
+        container3: {
+            flex: 0.91,
+            backgroundColor: '#182952',
+        }
 
-});
+    });
 
-AppRegistry.registerComponent('Test', () => Test);
+    AppRegistry.registerComponent('Test', () => Test);
 
 export default SettingsDiscountScale;
